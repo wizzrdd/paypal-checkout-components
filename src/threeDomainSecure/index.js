@@ -6,7 +6,7 @@ import { create } from 'zoid/src';
 import { base64encode } from 'belter/src';
 
 import { ENV } from '../constants';
-import { getBrowserLocale, getCurrentScriptUrl } from '../lib';
+import { getBrowserLocale, getCurrentScriptUrl, getSessionID, getCurrentScriptUrl } from '../lib';
 import { config } from '../config';
 import { containerTemplate } from '../billing/template';
 
