@@ -5,7 +5,6 @@
 import { ZalgoPromise } from 'zalgo-promise/src';
 import { base64encode } from 'belter/src';
 import { create } from 'zoid/src';
-import { info } from 'beaver-logger/client';
 
 import { ENV } from '../constants';
 import { getBrowserLocale, getCurrentScriptUrl, getSessionID, getCurrentScriptUrl } from '../lib';
@@ -35,12 +34,17 @@ export const ThreeDomainSecure = create({
             queryParam:   true,
             sendToChild:  false,
             def:         () => {
+<<<<<<< HEAD
                 return base64encode(JSON.stringify({
+=======
+                return btoa(JSON.stringify({
+>>>>>>> refactor(3ds): refactor 3ds
                     url: getCurrentScriptUrl()
                 }));
             }
         },
         locale: {
+<<<<<<< HEAD
             type:           'string',
             required:       false,
             queryParam:     'locale.x',
@@ -49,6 +53,11 @@ export const ThreeDomainSecure = create({
             def() : string {
                 const { lang, country } = getBrowserLocale();
                 return `${ lang }_${ country }`;
+=======
+            type: 'string',
+            def:  () => {
+                return getBrowserLocale();
+>>>>>>> refactor(3ds): refactor 3ds
             }
         },
         env: {
@@ -90,6 +99,11 @@ export const ThreeDomainSecure = create({
             once:      true,
             promisify: true,
             noop:      true
+        },
+        onCancel: {
+            type:           'function',
+            required:       true,
+            allowDelegate:  true
         }
     },
 

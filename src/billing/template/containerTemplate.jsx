@@ -3,6 +3,7 @@
 /* eslint max-lines: 0 */
 
 import { base64encode } from 'belter/src';
+export { ZalgoPromise as Promise } from 'zalgo-promise/src';
 
 import { fundingLogos } from '../../resources';
 import { BUTTON_LOGO_COLOR, CHECKOUT_OVERLAY_COLOR } from '../../constants';
