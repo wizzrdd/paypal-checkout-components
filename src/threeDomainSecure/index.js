@@ -9,8 +9,7 @@ import { create } from 'zoid/src';
 import { ENV } from '../constants';
 import { getBrowserLocale, getCurrentScriptUrl, getSessionID, getCurrentScriptUrl } from '../lib';
 import { config } from '../config';
-
-import { containerTemplate } from './template';
+import { containerTemplate } from '../billing/template';
 
 export const ThreeDomainSecure = create({
     tag:  'paypal-3ds',
@@ -79,17 +78,16 @@ export const ThreeDomainSecure = create({
             type:       'function',
             required:   false
         },
+<<<<<<< HEAD
         onFailure: {
             type:           'function',
             required:       false,
             allowDelegate:  true
-        },
-        onClose: {
-            type:      'function',
-            required:  false,
-            once:      true,
-            promisify: true,
-            noop:      true
+=======
+        onError: {
+            type:       'function',
+            required:   false
+>>>>>>> chore(3ds): revert the code to display 3ds using the popup
         },
         onCancel: {
             type:           'function',
