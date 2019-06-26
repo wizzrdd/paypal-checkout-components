@@ -380,3 +380,15 @@ export function htmlEncode(html : string = '') : string {
         .replace(/'/g, '&#39;')
         .replace(/\//g, '&#x2F;');
 }
+
+export function getScrollOffsetY() : number {
+    if (window.pageYOffset) {
+        return window.pageYOffset;
+    }
+
+    if (document.documentElement) {
+        return document.documentElement.scrollTop;
+    }
+
+    return 0;
+}

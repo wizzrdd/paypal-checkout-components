@@ -26,6 +26,7 @@ import { getPaymentType, awaitBraintreeClient,
 import { awaitPopupBridge } from '../integrations/popupBridge';
 import { validateFunding, isFundingIneligible, isFundingAutoEligible } from '../funding';
 import { getFundingConfig } from '../funding/config';
+import { getScrollOffsetY } from '../lib/dom';
 
 import { containerTemplate, componentTemplate } from './template';
 import { validateButtonLocale, validateButtonStyle } from './validate';
@@ -903,18 +904,6 @@ export const Button : Component<ButtonOptions> = create({
                     if (!initialHeight) {
                         initialHeight = container.offsetHeight;
                     }
-
-                    const getScrollOffsetY = () => {
-                        if (window.pageYOffset) {
-                            return window.pageYOffset;
-                        }
-
-                        if (document.documentElement) {
-                            return document.documentElement.scrollTop;
-                        }
-
-                        return 0;
-                    };
 
                     // explanation https://github.com/paypal/paypal-checkout-components/pull/1136#discussion_r298025574
                     const checkIfExpansionInViewport = () => {
