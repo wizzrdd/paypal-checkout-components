@@ -75,6 +75,10 @@ export const buttonStyle = `
         height: 100%;
         text-align: left;
     }
+
+    .${ CLASS.BUTTON } > .${ CLASS.BUTTON_LABEL } img {
+        margin-top: 1px;
+    }
     
     .${ CLASS.TAGLINE } {
         max-width: 100%;
